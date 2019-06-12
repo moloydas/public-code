@@ -18,7 +18,8 @@ args = None
 def process_folder(f):
     global args
 
-    dst = f.replace( "_polygons.json" , f"_label{args.id_type}s.png" )
+    #dst = f.replace( "_polygons.json" , f"_label{args.id_type}s.png" )
+    dst = f.replace( "_polygons.json" , "_label{args.id_type}s.png" )
 
     # do the conversion
     try:
@@ -28,8 +29,8 @@ def process_folder(f):
         raise
 
     if args.instance:
-        dst = f.replace( "_polygons.json" , f"_instance{args.id_type}s.png" )
-
+        #dst = f.replace( "_polygons.json" , f"_instance{args.id_type}s.png" )
+        dst = f.replace( "_polygons.json" , "_instance{args.id_type}s.png" )
         # do the conversion
         # try:
         json2instanceImg( f , dst , args.id_type )
@@ -39,8 +40,8 @@ def process_folder(f):
 
     if args.color:
         # create the output filename
-        dst = f.replace( "_polygons.json" , f"_labelColors.png" )
-
+        #dst = f.replace( "_polygons.json" , f"_labelColors.png" )
+        dst = f.replace( "_polygons.json" , "_labelColors.png" )
         # do the conversion
         try:
             json2labelImg( f , dst , 'color' )
@@ -54,7 +55,8 @@ def get_args():
 
     # parser.add_argument('--port', type=int, default=8097)
     parser.add_argument('--datadir', default="")
-    parser.add_argument('--id-type', default='id')
+    #parser.add_argument('--id-type', default='id')
+    parser.add_argument('--id-type', default='csTrainId')
     parser.add_argument('--color', type=bool, default=False) #train, instance, color, all
     parser.add_argument('--instance', type=bool, default=False) #train, instance, color, all
     parser.add_argument('--num-workers', type=int, default=10) #train, instance, color, all
