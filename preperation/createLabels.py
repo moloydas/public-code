@@ -18,8 +18,8 @@ args = None
 def process_folder(f):
     global args
 
-    #dst = f.replace( "_polygons.json" , f"_label{args.id_type}s.png" )
-    dst = f.replace( "_polygons.json" , "_label{args.id_type}s.png" )
+    dst = f.replace( "_polygons.json" , f"_label{args.id_type}s.png" )
+    #dst = f.replace( "_polygons.json" , "_label{args.id_type}s.png" )
 
     # do the conversion
     try:
@@ -29,8 +29,8 @@ def process_folder(f):
         raise
 
     if args.instance:
-        #dst = f.replace( "_polygons.json" , f"_instance{args.id_type}s.png" )
-        dst = f.replace( "_polygons.json" , "_instance{args.id_type}s.png" )
+        dst = f.replace( "_polygons.json" , f"_instance{args.id_type}s.png" )
+        #dst = f.replace( "_polygons.json" , "_instance{args.id_type}s.png" )
         # do the conversion
         # try:
         json2instanceImg( f , dst , args.id_type )
@@ -40,8 +40,8 @@ def process_folder(f):
 
     if args.color:
         # create the output filename
-        #dst = f.replace( "_polygons.json" , f"_labelColors.png" )
-        dst = f.replace( "_polygons.json" , "_labelColors.png" )
+        dst = f.replace( "_polygons.json" , f"_labelColors.png" )
+        #dst = f.replace( "_polygons.json" , "_labelColors.png" )
         # do the conversion
         try:
             json2labelImg( f , dst , 'color' )
